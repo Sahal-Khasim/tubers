@@ -19,7 +19,9 @@ class Team(models.Model):
     last_name = models.CharField(max_length=25)
     role = models.CharField(max_length=255)
     fb_link = models.CharField(max_length=255)
-    insta_link = models.CharField(max_length=255)
+    linkdin_link = models.CharField(max_length=255)
+    youtube_channel = models.CharField(max_length=250, default='My Channel')
+    youtube_link = models.CharField(max_length=300, default='link')
     photo = models.ImageField(upload_to='media/team/%Y/%m/%d/')
     created_date = models.DateTimeField(auto_now_add=True)
 
