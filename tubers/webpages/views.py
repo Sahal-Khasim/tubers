@@ -21,8 +21,5 @@ def home(request):
 def about(request):
     return render(request, 'webpages/about.html')
 
-def contact(request):
-    return render(request, 'webpages/contact.html')
-
 def services(request):
     return render(request, 'webpages/services.html')

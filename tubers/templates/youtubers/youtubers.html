@@ -1,24 +1,26 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block content %}
 
 <main class="tubers-page">
-    <div class="banner">
-    <img src="./assets/images/bg-banner.png" alt="" class="img-fluid w-100">
+    
+    <!-- <div class="banner">
+    <img src="{% static './assets/images/bg-banner.png' %}" alt="" class="img-fluid w-100">
     <h1 class="text-center">
         Tubers
     </h1>
-    </div>
+    </div> -->
+    {% include 'messages.html' %}
 
 
+
+<!-- youtubers section -->
     <section class="container mt-5 mb-5">
     <div class="row ">
         <div class="col-lg-8 mb-2 ">
         <section class="tubers">
-
-
-
-            <!-- person 1 -->
             {% for tuber in tubers %}
         <div class="card border-0 text-center ml-3 mr-3">
             <div class="feature-text">
@@ -47,9 +49,13 @@
     </div>
     {% endfor %}   
 
-        </section>
-        </div>
+    <!-- youtubers section  end //////////////////////-->
 
+
+
+<!-- search section -->
+    </section>
+    </div>
         <div class="col-lg-4 ">
         <div class="card">
             <div class="card-body">
@@ -74,20 +80,20 @@
                 </div>
                 <div class="form-group">
                 <select class="form-control">
-                    <option selected disabled hidden>Category</option>
+                    <option selected disabled hidden>catagory</option>
                     <option>...</option>
                 </select>
                 </div>
-
             </form>
-
-
             <button class="btn btn-accent btn-block">Search</button>
             </div>
         </div>
         </div>
     </div>
     </section>
+    <!-- search section  end /////////////////////-->
+
+
 
     <div class="container section pagination-section mt-3">
     <nav aria-label="Page navigation example">
