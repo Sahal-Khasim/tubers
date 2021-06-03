@@ -15,11 +15,15 @@ def home(request):
         'featured_youtubers': featured_youtubers,
         'all_youtubers': all_youtubers,
     }
-    return render(request, 'webpages/home.html' ,data)
+    return render(request, 'webpages/home.html', data)
 
 
 def about(request):
-    return render(request, 'webpages/about.html')
+    members = Team.objects.all()
+    data = {
+        'members': members,
+    }
+    return render(request, 'webpages/about.html', data)
 
 def services(request):
     return render(request, 'webpages/services.html')

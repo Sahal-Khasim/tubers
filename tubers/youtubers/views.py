@@ -5,8 +5,35 @@ from .models import Youtubers
 
 def youtubers(request):
     tubers = Youtubers.objects.order_by('-created_date')
+    city_search = Youtubers.objects.values_list(
+        'city', flat=True).distinct()
+    camera_type_search = Youtubers.objects.values_list(
+        'camera_type', flat=True).distinct()
+    catagory_search = Youtubers.objects.values_list(
+        'catagory', flat=True).distinct()
+
+    if 'city' in request.GET:
+        city = request.GET['city']
+        if city:
+            tubers = tubers.filter(city__iexact=city)
+
+    if 'camera_type' in request.GET:
+        camera_type = request.GET['camera_type']
+        if camera_type:
+            tubers = tubers.filter(camera_type__iexact=camera_type)
+
+    if 'catagory' in request.GET:
+        catagory = request.GET['catagory']
+        if catagory:
+            tubers = tubers.filter(catagory__iexact=catagory)
+
+
     data = {
         'tubers': tubers,
+        'city_search': city_search,
+        'camera_type_search': camera_type_search,
+        'catagory_search': catagory_search,
+
     }
     return render(request, 'youtubers/youtubers.html', data)
 

@@ -6,17 +6,10 @@
 
 
 <main class="contact-us">
-    <div class="banner">
-    <img src="{% static './assets/images/bg-banner.png' %}" alt="" class="img-fluid w-100">
-    <h1 class="text-center">
-        Dashboard
-    </h1>
-    </div>
-
     <section class="container mt-5">
     <h2 class="text-center">Welcome to Dashboard</h2>
-    <h4 class="text-center text-white-50">
-        hi, First_name. Hope you are having a good day
+    <h4 class="text-center text-50 text-success" >
+        hi, {{request.user.username}}. Hope you are having a good day
     </h4>
 
     <div class="table-responsive- mt-3">
@@ -42,7 +35,7 @@
             <tr>
             <th scope="row">2</th>
             <td>Jacob</td>
-            <td>Thornton</td>
+            <td>samuel</td>
             <td>
                 <div class="btn btn-accent">Go to Page </div>
             </td>
@@ -50,7 +43,7 @@
             <tr>
             <th scope="row">3</th>
             <td>Larry</td>
-            <td>the Bird</td>
+            <td>Bird</td>
             <td>
                 <div class="btn btn-accent">Go to Page </div>
             </td>

@@ -62,30 +62,33 @@
             <p class="text-left font-weight-bolder text-black-50">
                 Search Tubers
             </p>
-            <form>
+            <form method="GET" action="{% url 'youtubers' %}">
                 <div class="form-group">
-                <select id="inputState" class="form-control">
+                <select name="city" id="inputState" class="form-control">
                     <option selected disabled hidden>City</option>
-                    <option>...</option>
+                    {% for citys in city_search %}
+                    <option value="{{ citys }}">{{ citys }}</option>
+                    {% endfor %}
                 </select>
                 </div>
                 <div class="form-group">
-                <select id="inputState" class="form-control">
+                <select name="camera_type" id="inputState" class="form-control">
                     <option selected disabled hidden>Camera Type</option>
-                    <option>Value 1</option>
-                    <option>Value 2</option>
-                    <option>Value 3</option>
-                    <option>Value 4</option>
+                    {% for cameras in camera_type_search %}
+                    <option value="{{ cameras }}">{{ cameras }}</option>
+                    {% endfor %}
                 </select>
                 </div>
                 <div class="form-group">
-                <select class="form-control">
-                    <option selected disabled hidden>catagory</option>
-                    <option>...</option>
+                <select name="catagory" class="form-control">
+                    <option selected disabled hidden>Catagory</option>
+                    {% for catagorys in catagory_search %}
+                    <option value="{{catagorys}}" >{{ catagorys }}</option>
+                    {% endfor %}
                 </select>
                 </div>
+                <button type="submit" class="btn btn-accent">Search</button>
             </form>
-            <button class="btn btn-accent btn-block">Search</button>
             </div>
         </div>
         </div>
