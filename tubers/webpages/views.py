@@ -1,6 +1,6 @@
 
-from django.shortcuts import render
-from .models import Slider,Team
+from django.shortcuts import get_object_or_404, render
+from .models import Slider, Team, Aboutus
 from youtubers.models import Youtubers
 
 # Create your views here.
@@ -20,10 +20,13 @@ def home(request):
 
 def about(request):
     members = Team.objects.all()
+    about = get_object_or_404(Aboutus)
     data = {
         'members': members,
+        'about': about,
     }
     return render(request, 'webpages/about.html', data)
 
 def services(request):
     return render(request, 'webpages/services.html')
+

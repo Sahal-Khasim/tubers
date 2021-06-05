@@ -1,5 +1,5 @@
-from django.shortcuts import render,redirect
-from .models import Contact
+from django.shortcuts import get_object_or_404, render,redirect
+from .models import  Contact, Address
 from django.contrib import messages
 
 
@@ -23,4 +23,11 @@ def contact(request):
         contact.save()
         messages.success(request, 'Thanks for contacting us!')
         return redirect('home')
-    return render(request, 'contact/contact.html')
+
+
+    address = get_object_or_404(Address)
+    data = {
+        'address': address
+    }
+
+    return render(request, 'contact/contact.html', data)

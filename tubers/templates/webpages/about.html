@@ -9,19 +9,11 @@
     <section class="container mt-5 mb-5">
     <div class="row mt-5">
         <div class="col-md-4">
-        <img src="https://placeimg.com/640/480/cars" alt="" class="img-fluid">
+        <img src="{{ about.photo.url }}" alt="" class="img-fluid">
         </div>
         <div class="col-md-8 animate__animated animate__fadeInRight">
         <h2 class="text-center">About Us</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus aut, itaque quos est recusandae
-            earum fugiat numquam hic quasi dignissimos vitae mollitia aperiam tempore cum doloremque et accusamus
-            praesentium dolores.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam debitis rerum doloribus repellat nulla
-            soluta, est aut ipsa exercitationem quo asperiores atque vel voluptate, facilis voluptas dolores, id sunt
-            eaque deserunt sapiente eveniet. Ad reprehenderit temporibus distinctio, deserunt quibusdam accusamus soluta
-            eum animi quaerat voluptates rem quia, pariatur voluptatem magnam enim ratione aliquid! Aperiam, autem at.
-            tempora quam facilis deleniti explicabo labore, accusantium provident quidem omnis tenetur incidunt esse
-            quos nisi.
+        <p>{{ about.description | safe }}
         </p>
         </div>
     </div>
@@ -37,7 +29,7 @@
         <!-- team 1 -->{% for member in members %}
         <div class="card border-0 text-center  ml-3 mr-3">
             <a href="{% url 'youtuber_detail' member.id %}">
-                <img src="https://placeimg.com/640/480/tech" class="card-img-top" alt="team-member">
+                <img src="{{ member.photo.url }}" class="card-img-top" alt="team-member">
             </a>
             <div class="card-body">
             <h5 class="card-title">{{ member.first_name }} {{ member.last_name }}</h5>

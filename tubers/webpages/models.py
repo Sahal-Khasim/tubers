@@ -1,4 +1,6 @@
 from django.db import models
+from ckeditor.fields import RichTextField
+
 
 
 class Slider(models.Model):
@@ -28,3 +30,8 @@ class Team(models.Model):
 
     def __str__(self):
         return self.first_name
+
+
+class Aboutus(models.Model):
+    photo = models.ImageField(upload_to='media/team/%Y/%m/%d/')
+    description = RichTextField()

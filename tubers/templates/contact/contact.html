@@ -13,10 +13,14 @@
     <section class="container mt-5">
     <div class="row ">
         <div class="col-md-6 mb-2 ">
-        <form method="POST" action="{% url 'contact' %}">{% csrf_token %}
+            <form method="POST" action="{% url 'contact' %}">{% csrf_token %}
             <div class="form-row">
             <div class="form-group col-lg-6">
+                {% if user.is_authenticated %}
+                <input name="username" value="{{ user.username }}" class="form-control" placeholder="Full Name">
+                {% else %}
                 <input name="full_name" class="form-control" placeholder="Full Name">
+                {% endif %}
             </div>
             <div class="form-group col-lg-6">
                 <input name="phone" class="form-control" placeholder="Phone Number">
@@ -24,7 +28,11 @@
             </div>
             <div class="form-row">
             <div class="form-group col-lg-6">
+                {% if user.is_authenticated %}
+                <input name="email" type="email" value="{{ user.email }}" class="form-control" placeholder="Email">
+                {% else %}
                 <input name="email" type="email" class="form-control" placeholder="Email">
+                {% endif %}
             </div>
             <div class="form-group col-lg-6">
                 <input name="company_name" class="form-control" placeholder="Company Name">
@@ -40,7 +48,7 @@
             <button type="submit" class="btn btn-accent">Contact Us</button>
             </div>
 
-        </form>
+            </form>
         </div>
 
         <div class="col-md-4 offset-md-2 d-flex justify-content-center mb-2">
@@ -48,15 +56,15 @@
             <div class="card-body">
             <div class="mb-4">
                 <h6 class="card-title font-weight-bolder">Phone</h6>
-                <span class="card-text">+91 9898989899</span>
+                <span class="card-text">{{ address.phone }}</span>
             </div>
             <div class="mb-4">
                 <h6 class="card-title font-weight-bolder">Email</h6>
-                <span class="card-text">info@mail.com</span>
+                <span class="card-text">{{ address.email }}</span>
             </div>
             <div class="mb-4">
                 <h6 class="card-title font-weight-bolder">Address</h6>
-                <span class="card-text">Street, <br>City and State, <br>India </span>
+                <span class="card-text">{{ address.address | safe }}</span>
             </div>
             </div>
         </div>

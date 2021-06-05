@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Slider,Team
+from .models import  Slider,Team,Aboutus
 from django.utils.html import format_html
 
 class TeamAdmin(admin.ModelAdmin):
@@ -14,5 +14,14 @@ class TeamAdmin(admin.ModelAdmin):
     list_filter = ('role',)
 
 
+class AboutAdmin(admin.ModelAdmin):
+
+    def aphoto(self, object):
+        return format_html('<img src="{}" width="50" style="border-radius: 10%;" />'.format(object.photo.url))
+
+    list_display = ('aphoto',)
+
+
 admin.site.register(Slider)
 admin.site.register(Team, TeamAdmin)
+admin.site.register(Aboutus, AboutAdmin)
