@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import  Slider,Team,Aboutus
+from .models import  Slider, Team, Aboutus, Service, ServiceCard
 from django.utils.html import format_html
 
 class TeamAdmin(admin.ModelAdmin):
@@ -25,3 +25,5 @@ class AboutAdmin(admin.ModelAdmin):
 admin.site.register(Slider)
 admin.site.register(Team, TeamAdmin)
 admin.site.register(Aboutus, AboutAdmin)
+admin.site.register(Service)
+admin.site.register(ServiceCard)

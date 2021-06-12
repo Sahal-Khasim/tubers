@@ -35,3 +35,18 @@ class Team(models.Model):
 class Aboutus(models.Model):
     photo = models.ImageField(upload_to='media/team/%Y/%m/%d/')
     description = RichTextField()
+
+
+
+class Service(models.Model):
+    description = RichTextField()
+    photo = models.ImageField(upload_to='media/service/%Y/%m/')
+    
+
+
+class ServiceCard(models.Model):
+    card_title = models.CharField(max_length=30)
+    card_description = RichTextField()
+
+
+

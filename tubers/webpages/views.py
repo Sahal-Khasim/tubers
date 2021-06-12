@@ -1,6 +1,6 @@
 
 from django.shortcuts import get_object_or_404, render
-from .models import Slider, Team, Aboutus
+from .models import Slider, Team, Aboutus, Service, ServiceCard
 from youtubers.models import Youtubers
 
 # Create your views here.
@@ -28,5 +28,11 @@ def about(request):
     return render(request, 'webpages/about.html', data)
 
 def services(request):
-    return render(request, 'webpages/services.html')
+    services = get_object_or_404(Service)
+    servicecard = ServiceCard.objects.all()
+    data = {
+        'services': services,
+        'servicecard': servicecard,
+    }
+    return render(request, 'webpages/services.html', data)
 
