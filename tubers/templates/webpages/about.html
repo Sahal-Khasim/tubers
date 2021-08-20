@@ -28,7 +28,6 @@
 
         <!-- team 1 -->{% for member in members %}
         <div class="card border-0 text-center  ml-3 mr-3">
-            <a href="{% url 'youtuber_detail' member.id %}">
                 <img src="{{ member.photo.url }}" class="card-img-top" alt="team-member">
             </a>
             <div class="card-body">
